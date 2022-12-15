@@ -21,6 +21,8 @@ if (usernumber == 1) {
     weekday = "Суббота";
 } else if (usernumber == 7) {
     weekday = "Воскресенье";
+} else {
+    weekday = "Ошибка ввода номера дня недели.";
 }
 
 Console.WriteLine($"{usernumber} -> {weekday}");
