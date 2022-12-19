@@ -6,36 +6,22 @@
 // 16, 4 -> кратно
 
 Console.WriteLine("Введите число:");
-int userNumber = Convert.ToInt32 (Console.ReadLine());
+int userNumber = Convert.ToInt32(Console.ReadLine());
 
 Console.WriteLine("Введите второе число:");
-int userNumber2 = Convert.ToInt32 (Console.ReadLine());
-/*
-string DivCheck (int number1, int number2)
+int userNumber2 = Convert.ToInt32(Console.ReadLine());
+
+bool DivCheck(int number1, int number2)
 {
-    if ( us1 % us2 == 0 ) 
-    {
-        return $"{number1}, {number2} -> кратно" ;
-    } else {
-        return $"{number1}, {number2} -> не кратно, остаток "+(number1 % number2);
-    }
-}
-*/
-bool DivCheck (int number1, int number2)
-{
-    if ( number1 % number2 == 0 ) 
-    {
-        return true ;
-    } else {
-        return false;
-    }
+    return number1 % number2 == 0;
 }
 
-if ( DivCheck(userNumber,userNumber2) ) 
+if (DivCheck(userNumber, userNumber2))
 {
     Console.WriteLine($"{userNumber}, {userNumber2} -> кратно");
-} else 
+}
+else
 {
-Console.WriteLine($"{userNumber}, {userNumber2} -> не кратно, остаток "+(userNumber % userNumber2));
+    Console.WriteLine($"{userNumber}, {userNumber2} -> не кратно, остаток " + (userNumber % userNumber2));
 }
 
