@@ -5,40 +5,6 @@
 // 456 -> 5
 // 782 -> 8
 // 918 -> 1
-/*
-int ThirdDigit(int digit)
-{
-    int res;
-
-    if (digit > 99)
-    {
-        while (digit > 999)
-        {
-            digit = digit / 10;
-        }
-        res = digit % 10;
-    }
-    else
-    {
-        res = -1;
-    }
-    return res;
-}
-
-Console.WriteLine("Введите трех значаное число");
-int usNumber = Convert.ToInt32(Console.ReadLine());
-int dig3 = ThirdDigit(usNumber);
-
-if (dig3 >= 0)
-{
-    Console.WriteLine($"{usNumber} -> {dig3}");
-}
-else
-{
-    Console.WriteLine($"{usNumber} -> Третей цифры нет");
-}
-*/
-
 
 int SecondDigit(int digit)//Метод для получения 2 цифры
 {
