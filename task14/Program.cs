@@ -4,4 +4,22 @@
 // 14 -> нет
 // 46 -> нет
 // 161 -> да
+string str;
 
+Console.WriteLine("Введите число:");
+int userNumber = Convert.ToInt32(Console.ReadLine());
+
+bool DigitCheck (int num)
+{
+    return num % 7 == 0 && num % 23 == 0;
+}
+
+if ( DigitCheck(userNumber) ) 
+{
+    str = userNumber + " -> да";
+} else
+{
+    str = userNumber + " -> нет";
+}
+
+Console.WriteLine(str);
