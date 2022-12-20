@@ -5,6 +5,11 @@
 // 78 -> третьей цифры нет
 // 32679 -> 6
 
+int InsertDigit(string text) //Метод ввода пользовательских числовых значений
+{
+    Console.WriteLine(text);
+    return Convert.ToInt32(Console.ReadLine());
+}
 
 int ThirdDigit(int digit) //Метод для получения 3 цифры числа
 {
@@ -25,10 +30,10 @@ int ThirdDigit(int digit) //Метод для получения 3 цифры ч
 }
 
 //Пользовательский ввод числа
-Console.WriteLine("Для получения 3 цифры введите число:");
-int usNumber = Convert.ToInt32(Console.ReadLine());
+int usNumber = InsertDigit("Для получения 3 цифры введите число:");
 
-int dig3 = ThirdDigit(usNumber); //Вызова метода для получения 3 цифры
+//Вызова метода для получения 3 цифры 
+int dig3 = ThirdDigit(usNumber); 
 
 if (dig3 >= 0) //Метод должен вернуть цифру от 0 до 9
 {
