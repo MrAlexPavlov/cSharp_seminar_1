@@ -11,17 +11,24 @@ int InsertDigit(string text) //Метод ввода пользовательс�
     return Convert.ToInt32(Console.ReadLine());
 }
 
-int usNumber = InsertDigit("Введите номер дня недели от 1 до 7:");
+int HollidayDayByindex(int weekday)
+{
+    int res = -1;
+    if (weekday > 0 && weekday < 6) res = 0; //Будние дни
+    if (weekday == 6 || weekday == 7) res = 1; //Выходные дни
+    return res;
+}
 
-if (usNumber < 1 || usNumber > 7) //Если пользователь ввел число не в рамках от 1 до 7 то сообщаем ему об этом
+int holliday = -1, usNumber = 0;
+//Просим пользователя ввести число 
+//Если пользователь ввел некорректный день недели просим это его сделать еще раз
+while (holliday < 0)
 {
-    Console.WriteLine($"В неделе 7 дней, а не {usNumber}");
+    usNumber = InsertDigit("Введите номер дня недели от 1 до 7:"); //Метод ввода числа от пользователя
+    holliday = HollidayDayByindex(usNumber); //Вызываем метод проверки, введенный день выходной или нет
+    if (holliday < 0) Console.WriteLine($"В неделе 7 дней, а не {usNumber}\n");
 }
-else if (usNumber < 6) //Будние дни
-{
-    Console.WriteLine($"{usNumber} -> нет");
-}
-else //                 Выходные дни
-{ 
-    Console.WriteLine($"{usNumber} -> да");
-}
+
+if (holliday == 0) Console.WriteLine($"{usNumber} -> нет");
+if (holliday == 1) Console.WriteLine($"{usNumber} -> да");
+
