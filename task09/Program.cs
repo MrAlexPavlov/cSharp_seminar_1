@@ -32,7 +32,11 @@ Console.WriteLine(result);
 //######################################################################################
 */
 //Второй вариант с использованием методов
+<<<<<<< HEAD
 string maxDigit(int number)
+=======
+string MaxDigit(int number)
+>>>>>>> edbdf04ed4ee225396dfa298bb56626ef76da933
 {
     int fDigit = number / 10;
     int sDigit = number % 10;
@@ -42,7 +46,11 @@ string maxDigit(int number)
 
 int number = new Random().Next(10, 100);
 Console.WriteLine($"Случайное число из диапазона 10-99 => {number}");
+<<<<<<< HEAD
 Console.WriteLine(maxDigit(number));
+=======
+Console.WriteLine(MaxDigit(number));
+>>>>>>> edbdf04ed4ee225396dfa298bb56626ef76da933
 
 
 
