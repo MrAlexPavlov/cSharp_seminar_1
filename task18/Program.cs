@@ -6,13 +6,13 @@ Console.WriteLine("Введите номер четверти:");
 
 int quarter = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine(Quarter(quarter));
+Console.WriteLine(Range(quarter));
 
-string Quarter (int quart)
+string Range (int quart)
 {
-    if (quart ==1 ) return "xpos>0 && ypos>0";
-    if (quart ==2 ) return "xpos<0 && ypos>0";
-    if (quart ==3 ) return "xpos<0 && ypos<0";
-    if (quart ==4 ) return "xpos<0 && ypos<0";
+    if (quart ==1 ) return "xpos>0 и ypos>0";
+    if (quart ==2 ) return "xpos<0 и ypos>0";
+    if (quart ==3 ) return "xpos<0 и ypos<0";
+    if (quart ==4 ) return "xpos<0 и ypos<0";
     return $"Не верный ввод. Четверти {quart} не существует";
 }
