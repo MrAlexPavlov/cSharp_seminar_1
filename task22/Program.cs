@@ -3,5 +3,18 @@
 // квадратов чисел от 1 до N.
 
 
+int InsertDigit(string text) //Метод пользовательского ввода
+{
+    Console.WriteLine(text);
+    int result = Convert.ToInt32(Console.ReadLine());
+    return result;
+}
 
+int userNumber = InsertDigit("Введите число:");
 
+int count = 1;
+while (count<=userNumber)
+{
+    Console.WriteLine($"{count,2}  {count*count,3}");
+    count++;
+}
