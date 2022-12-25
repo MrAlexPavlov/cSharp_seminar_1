@@ -17,6 +17,6 @@ while (count<=Math.Abs(userNumber))
 {
     cnt = count;
     if (userNumber<0) cnt = -count;
-    Console.WriteLine($"{count,2}  {count*count,3}");
+    Console.WriteLine($"{cnt,2}  {count*count,3}");
     count++;
 }
