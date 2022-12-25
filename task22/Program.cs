@@ -12,9 +12,11 @@ int InsertDigit(string text) //Метод пользовательского в�
 
 int userNumber = InsertDigit("Введите число:");
 
-int count = 1;
-while (count<=userNumber)
+int count = 1,cnt;
+while (count<=Math.Abs(userNumber))
 {
+    cnt = count;
+    if (userNumber<0) cnt = -count;
     Console.WriteLine($"{count,2}  {count*count,3}");
     count++;
 }
