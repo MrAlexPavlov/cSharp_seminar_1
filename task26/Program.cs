@@ -13,9 +13,8 @@ int InsertDigit(string text) //Метод пользовательского в�
 
 int CountDigit(int insertNum)
 {
-    insertNum = Math.Abs(insertNum);
     int temp = 0;
-    while (insertNum > 0)
+    while (insertNum != 0)
     {
         insertNum = insertNum / 10;
         temp++;
