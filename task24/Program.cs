@@ -17,12 +17,12 @@ int SumDigit(int insertNum) //Метод перебора от 1 до перед
 {
     int temp, result = 0; //переменная temp на тот случай если введено отрицательное число
     temp = Math.Abs(insertNum);
-    for (int i = 1; i <= temp; i++) result = result + i;
-    if (insertNum < 0) result = -result;
+    for (int i = 1; i <= temp; i++) result = result + i; //получаем сумму натуральных чисел от 1
+    if (insertNum < 0) result = -result;//если изначальное число было отрицательное, то добавляем минус полученному значению
     return result;
 }
 
 int userNum = InsertDigit("Введите число");
 int sumNum = SumDigit(userNum);
 
-Console.WriteLine($"Сумма натуральных чисел от 1 до {userNum} это {sumNum}");
+Console.WriteLine($"Сумма натуральных чисел от 1(-1) до {userNum} это {sumNum}");
