@@ -25,9 +25,4 @@ if (userNum > 0)
     int prodNum = ProdDigit(userNum);
     Console.WriteLine($"Факториал числа {userNum}! = {prodNum}");
 }
-else
-{
-    Console.WriteLine($"Факториал отрицательного числа не определен");
-}
-
-
+else Console.WriteLine($"Факториал отрицательного числа не определен");
