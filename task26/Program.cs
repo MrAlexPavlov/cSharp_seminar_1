@@ -11,10 +11,10 @@ int InsertDigit(string text) //Метод пользовательского в�
     return result;
 }
 
-int CountDigit(int insertNum)
+int CountDigit(int insertNum)//Счетчик количества разрядов в числе
 {
     int temp = 0;
-    while (insertNum != 0)
+    while (insertNum != 0)//!=0 на тот случай если пользователь ввел отрицательное значение
     {
         insertNum = insertNum / 10;
         temp++;
