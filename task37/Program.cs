@@ -32,23 +32,18 @@ int[] MakeArray(int[] array) // Метод для создания массив�
 {
     int size = array.Length % 2 != 0 ? array.Length / 2 + 1 : array.Length / 2; //определяем размер нового массива. Нюнасы с четным и не четным кол-вом элементов
     int[] resArray = new int[size];
+
     for (int i = 0; i < resArray.Length; i++)
     {
-        if (i == resArray.Length - 1 && array.Length % 2 == 1)// на тот случай если кол-во элементов в исходном массиве не четное
-        {
-            resArray[i] = array[i];
-        }
-        else
-        {
-            resArray[i] = array[i] * array[array.Length - i - 1]; 
-        }
-
+        resArray[i] = array[i] * array[array.Length - i - 1];
     }
+    
+    if (array.Length % 2 == 1) resArray[size - 1] = array[array.Length / 2];
     return resArray;
 }
 
 
-int arraySize = 5, arrayMinValue = 0, arrayMaxValue = 10;
+int arraySize = 6, arrayMinValue = 0, arrayMaxValue = 10;
 
 int[] newArray = CreatArray(arraySize, arrayMinValue, arrayMaxValue); //генерируем массив с указаными параметры
 string strArray = ArrayToString(newArray);// переводим строку в массив для дальнейшего вывода на экран

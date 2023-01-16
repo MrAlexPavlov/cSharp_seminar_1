@@ -42,7 +42,7 @@ int CountElements(int[] array, int fMin, int fMax)
 }
 
 
-int arraySize = 123, arrayMinValue = 0, arrayMaxValue = 123, findMin = 10, findMax = 99;
+int arraySize = 6, arrayMinValue = 0, arrayMaxValue = 123, findMin = 10, findMax = 99;
 
 int[] newArray = CreatArray(arraySize, arrayMinValue, arrayMaxValue); //генерируем массив с указаными параметры
 string strArray = ArrayToString(newArray);// переводим строку в массив для дальнейшего вывода на экран
