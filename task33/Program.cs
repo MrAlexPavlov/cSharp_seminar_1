@@ -27,12 +27,10 @@ string ArrayToString(int[] array)//Метод преобразования ма�
 }
 
 
-bool Finddigit(int[] array, int f)
+bool FindDigit(int[] array, int findDigit)//Метод поиска числа в массиве
 {
     for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i]==f) return true;
-    }
+        if (array[i] == findDigit) return true;
     return false;
 }
 
@@ -41,11 +39,5 @@ int arraySize = 5, arrayMinValue = 0, arrayMaxValue = 10, find = 3;
 int[] newArray = CreatArray(arraySize, arrayMinValue, arrayMaxValue); //генерируем массив с указаными параметры
 string strArray = ArrayToString(newArray);// переводим строку в массив для дальнейшего вывода на экран
 
-if (Finddigit(newArray,find)) 
-{
-    Console.WriteLine($"{find}; массив {strArray} -> да ");
-} 
-else 
-{
-    Console.WriteLine($"{find}; массив {strArray} -> нет ");
-}
+string trueFalse = FindDigit(newArray, find) ? "да":"нет";
+Console.WriteLine($"{find}; массив {strArray} -> {trueFalse} ");
