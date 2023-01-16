@@ -7,7 +7,7 @@ int InsertDigit(string text) //Метод пользовательского в�
 {
     int result;
     Console.WriteLine(text);
-    Int32.TryParse(Console.ReadLine(), out result);
+    if (!Int32.TryParse(Console.ReadLine(), out result)) result = InsertDigit(text);//Если пользователь ввел некорректное значение вызываем повтороно метод.
     return result;
 }
 
