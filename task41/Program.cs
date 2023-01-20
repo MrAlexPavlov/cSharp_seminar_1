@@ -5,13 +5,13 @@
 
 string ArrayIntToString(int[] array)//Метод преобразования массива в строку
 {
-    string result = "[";
+    string result = "";
     for (int i = 0; i < array.Length; i++)
     {
         result = result + $" {array[i]}";
         result = i < (array.Length - 1) ? result = result + "," : result;//для корректности вывода запятых
     }
-    return result + " ]";
+    return result;
 }
 
 int[] UserEnteredNumbers(string text, char delim)//Метод пользовательского ввода нескольких чисел через разделитель delim
@@ -21,7 +21,7 @@ int[] UserEnteredNumbers(string text, char delim)//Метод пользоват
     //Очищаем консоль и ожидаем пользовательского ввода
     Console.Clear();
     Console.WriteLine(text);
-    string usersText = Console.ReadLine();
+    string usersText = Console.ReadLine()?? string.Empty;
 
     //преобразуем строку в строковый массив и переводим его в числовой массив
     string[] tmpStrArray = usersText.Split(delim);
@@ -60,8 +60,10 @@ int CounterPositiveIntegers(int[] array)
 
 //Запрашиваем у пользователя ввод данных
 int[] usersNumbers = UserEnteredNumbers("Введите целые числа через запятую", ',');
+
 //Производим подсчет количество положительных чисел
 int cntPos = CounterPositiveIntegers(usersNumbers);
+
 //выводим на экран массив и результат работы счетчика
 string usersNumbersStr = ArrayIntToString(usersNumbers);
-Console.WriteLine($"{usersNumbersStr} -> {cntPos}");
+Console.WriteLine($"{usersNumbersStr}-> {cntPos}");
