@@ -28,17 +28,14 @@ int[] UserEnteredNumbers(string text, char delim)//Метод пользоват
     int[] tmpArray = new int[tmpStrArray.Length];
     for (int i = 0; i < tmpStrArray.Length; i++)
     {
-        tryParseToInt = Int32.TryParse(tmpStrArray[i], out intTmp);
         //Берем только числовые значения
-        if (tryParseToInt)
-        {
-            tmpArray[j] = intTmp;
-            j++;
-        }
+        tryParseToInt = Int32.TryParse(tmpStrArray[i], out intTmp);
+        if (tryParseToInt) tmpArray[j++] = intTmp;
     }
     //Если размер нового числого массива будет больше чем количество вписанных туда элементов 
     //Например: не все, что ввел пользователь было числами, задвоение разделеителей и т.п.
     //то удаляем не нужное через создание другого массива
+
     int[] resArray = new int[j];
     if (tmpArray.Length > j)
     {
