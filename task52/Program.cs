@@ -18,7 +18,7 @@ int[,] CreatMatrixRndIntArray(int rowSize, int colSize, int minValue, int maxVal
     return resArray;
 }
 
-string ArrayToString(int[,] array)//Метод преобразования массива в строку
+string MatrixToString(int[,] array)//Метод преобразования 2d массива в строку
 {
     string result = "";
     for (int i = 0; i < array.GetLength(0); i++)
@@ -36,6 +36,17 @@ string ArrayToString(int[,] array)//Метод преобразования ма
     return result;
 }
 
+string ArrayDoubleToString(double[] array)
+{
+    string result = "  ";
+    for (int i = 0; i < array.Length; i++)
+    {
+        result += array[i];
+        result += (i < array.Length - 1) ? "  " : "";
+    }
+    return result;
+}
+
 double[] AverageColumnElemMatrix(int[,] array)
 {
     double[] resArray = new double[array.GetLength(1)];
@@ -46,7 +57,7 @@ double[] AverageColumnElemMatrix(int[,] array)
             resArray[j] += array[i, j];
 
         resArray[j] = resArray[j] / array.GetLength(0);
-        resArray[j] = Math.Round(resArray[j],1);
+        resArray[j] = Math.Round(resArray[j], 1);
     }
     return resArray;
 }
@@ -61,16 +72,13 @@ int matrixRowSize = 3,
 //генерируем массив
 int[,] rndMatrixArray = CreatMatrixRndIntArray(matrixRowSize, matrixColSize, matrixMinValue, matrixMaxValue);
 //Выводим на массив экран
-string rndMatrixString = ArrayToString(rndMatrixArray);
+string rndMatrixString = MatrixToString(rndMatrixArray);
 Console.WriteLine(rndMatrixString);
 
 //Считаем среднее по столбцам и выводим на экран.
 double[] avgColElemArray = AverageColumnElemMatrix(rndMatrixArray);
 
 string answerMessage = "Среднее арифметическое каждого столбца:\n";
-for (int i = 0; i < avgColElemArray.Length; i++)
-{
-    answerMessage += $"{avgColElemArray[i],2}";
-    answerMessage += (i < avgColElemArray.Length - 1) ? "; " : "";
-}
+answerMessage += ArrayDoubleToString(avgColElemArray);
+
 Console.WriteLine(answerMessage);
