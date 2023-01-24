@@ -87,7 +87,11 @@ int[] usersNum = UserEnteredNumbers("Введите номер строки и �
 
 //Проверяем массив rndMatrixArray на существование элемента по номерам индекса введенных от пользователя
 string answer;
-if (usersNum[0] >= rndMatrixArray.GetLength(0) || usersNum[1] >= rndMatrixArray.GetLength(1))
+
+if (   usersNum[0] >= rndMatrixArray.GetLength(0)
+    || usersNum[1] >= rndMatrixArray.GetLength(1)
+    || usersNum[0] < 0
+    || usersNum[1] < 0 )
     answer = "Такого элемента нет!";
 else
     answer = $"{rndMatrixArray[usersNum[0], usersNum[1]]}";
