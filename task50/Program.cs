@@ -38,39 +38,34 @@ string ArrayToString(int[,] array)//Метод преобразования ма
     return result;
 }
 
-int[] UserEnteredNumbers(string text, char delim)//Метод пользовательского ввода нескольких чисел через разделитель delim
+int[] UserEnteredNumbers(string text, char delim, int countElem)//Метод пользовательского ввода нескольких чисел через разделитель delim
 {
-    bool tryParseToInt;
-    int j = 0, intTmp = 0;
     //ожидаем пользовательского ввода
     Console.WriteLine(text);
     string usersText = Console.ReadLine() ?? string.Empty;
 
     //преобразуем строку в строковый массив и переводим его в числовой массив
     string[] tmpStrArray = usersText.Split(delim);
-    int[] tmpArray = new int[tmpStrArray.Length];
+    int[] resArray = new int[tmpStrArray.Length];
+
+    bool tryParseToInt;
+    int j = 0, intTmp = 0;
     for (int i = 0; i < tmpStrArray.Length; i++)
     {
         //Берем только числовые значения
         tryParseToInt = Int32.TryParse(tmpStrArray[i], out intTmp);
-        if (tryParseToInt) tmpArray[j++] = intTmp;
+        if (tryParseToInt) resArray[j++] = intTmp;
     }
-    //Если размер нового числого массива будет больше чем количество вписанных туда элементов 
+
+    //Размер массива resArray может больше чем количество реальных числовых элементов полученного из строки пользователя,
+    //удаляем лишние элементы, если такие есть.
     //Например: не все, что ввел пользователь было числами, задвоение разделеителей и т.п.
-    //то удаляем не нужное через создание другого массива
+    Array.Resize(ref resArray, j);
 
-    int[] resArray = new int[j];
-    if (tmpArray.Length > j)
-    {
-        for (int i = 0; i < resArray.Length; i++)
-            resArray[i] = tmpArray[i];
-    }
-    else resArray = tmpArray;
+    if (resArray.Length != countElem) resArray = UserEnteredNumbers(text, delim, countElem);//Если пользователь ввел что-то не то, просим это сделать еще раз
 
-    if (resArray.Length!=2) resArray = UserEnteredNumbers(text, delim);//Если пользователь ввел что-то не то, просим это сделать еще раз
     return resArray;
 }
-
 
 Console.Clear();
 //Параметры для генерации двумерного массива типа int.
@@ -78,17 +73,21 @@ int matrixRowSize = 3,
     matrixColSize = 4,
     matrixMinValue = 0,
     matrixMaxValue = 10;
+int usersNumCount = 2;//количество значений которые должен ввести пользователь
 
 //генерируем массив
 int[,] rndMatrixArray = CreatMatrixRndIntArray(matrixRowSize, matrixColSize, matrixMinValue, matrixMaxValue);
+
 //Выводим на массив экран
 string rndMatrixString = ArrayToString(rndMatrixArray);
 Console.WriteLine(rndMatrixString);
 
-int[] usersNum = UserEnteredNumbers("Введите номер строки и номер столбца через запятую:", ',');
-//Проверяем элемент на существование по номерам индекса
+//Просим пользователя ввести номер ст
+int[] usersNum = UserEnteredNumbers("Введите номер строки и номер столбца через запятую:", ',', usersNumCount);
+
+//Проверяем массив rndMatrixArray на существование элемента по номерам индекса введенных от пользователя
 string answer;
-if (usersNum[0] > rndMatrixArray.GetLength(0) || usersNum[1] > rndMatrixArray.GetLength(1))
+if (usersNum[0] >= rndMatrixArray.GetLength(0) || usersNum[1] >= rndMatrixArray.GetLength(1))
     answer = "Такого элемента нет!";
 else
     answer = $"{rndMatrixArray[usersNum[0], usersNum[1]]}";
