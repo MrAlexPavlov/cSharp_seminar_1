@@ -56,7 +56,7 @@ double[] AverageColumnElemMatrix(int[,] array)
         for (int i = 0; i < array.GetLength(0); i++)
             resArray[j] += array[i, j];
 
-        resArray[j] = resArray[j] / array.GetLength(0);
+        resArray[j] /= array.GetLength(0);
         resArray[j] = Math.Round(resArray[j], 1);
     }
     return resArray;
