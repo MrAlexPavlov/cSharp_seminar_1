@@ -58,5 +58,14 @@ int matrixRowSize = 3,
 int[,] rndMatrixInt = CreatMatrixRndIntArray(matrixRowSize, matrixColSize, matrixMinValue, matrixMaxValue);
 
 Console.WriteLine(ArrayToString(rndMatrixInt));
-ExcangeElemRowToCol(rndMatrixInt);
-Console.WriteLine(ArrayToString(rndMatrixInt));
+
+if (rndMatrixInt.GetLength(0)==rndMatrixInt.GetLength(1))
+{
+    ExcangeElemRowToCol(rndMatrixInt);
+    Console.WriteLine(ArrayToString(rndMatrixInt));
+}
+else
+{
+    Console.WriteLine("Нельзя преобразовать не квадратную матрицу.");
+}
+
