@@ -34,17 +34,17 @@ string ArrayToString(int[,] array)//Метод преобразования ма
     }
     return result;
 }
-/*
+
 string ArrayToString2(int[,] array)//Метод преобразования массива в строку
 {
     string result = "";
     for (int i = 0; i < array.GetLength(0); i++)
     {
+        if (array[i,1] == 0) break;
         result += "[";
 
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            if (array[i,0] =+ 0 array[])
             result = result + $" {array[i, j],3}";
             result = j < (array.GetLength(1) - 1) ? result + "," : result;//для корректности вывода запятых    
         }
@@ -53,7 +53,7 @@ string ArrayToString2(int[,] array)//Метод преобразования м�
     }
     return result;
 }
-*/
+
 
 void PrintArray(int[] array)
 {
@@ -124,7 +124,6 @@ PrintArray(tmpArray);
 
 int[,] dictionaryMatrix = CreateDictionaryFromArray(tmpArray);
 
-
-Console.WriteLine(ArrayToString(dictionaryMatrix));
+Console.WriteLine(ArrayToString2(dictionaryMatrix));
 
 
