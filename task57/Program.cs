@@ -40,7 +40,7 @@ string ArrayToString2(int[,] array)//Метод преобразования м�
     string result = "";
     for (int i = 0; i < array.GetLength(0); i++)
     {
-        if (array[i,1] == 0) break;
+        if (array[i,1] == 0) break;//Если количество элементов равно нулю мы дошли до низу массива
         result += "[";
 
         for (int j = 0; j < array.GetLength(1); j++)
