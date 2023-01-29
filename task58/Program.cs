@@ -27,7 +27,7 @@ string MatrixToString(int[,] array)//Метод преобразования м�
         result += "|";
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            result = result + $" {array[i, j],2}";
+            result = result + $" {array[i, j],3}";
             result = j < (array.GetLength(1) - 1) ? result + "," : result;//для корректности вывода запятых    
         }
         result += " |\n";
@@ -60,8 +60,8 @@ int[,] MatrixProd(int[,] arr1, int[,] arr2)
 
 
 //Параметры для генерации двумерного массива типа int.
-int matrix1RowSize = 4,
-    matrix1ColSize = 2,
+int matrix1RowSize = 3,
+    matrix1ColSize = 4,
     matrix1MinValue = 1,
     matrix1MaxValue = 9;
 
@@ -70,8 +70,8 @@ int[,] rndMatrix1Int = CreatMatrixRndIntArray(matrix1RowSize, matrix1ColSize, ma
 Console.WriteLine("Матрица A:");
 Console.WriteLine(MatrixToString(rndMatrix1Int));
 
-int matrix2RowSize = 2,
-    matrix2ColSize = 2,
+int matrix2RowSize = 4,
+    matrix2ColSize = 3,
     matrix2MinValue = 1,
     matrix2MaxValue = 9;
 
