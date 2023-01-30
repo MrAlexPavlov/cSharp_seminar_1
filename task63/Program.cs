@@ -17,7 +17,6 @@ void IntegerNumbers(int n)
     if (n==0) return;
     IntegerNumbers(n-1);
     Console.Write($"{n} ");
-    return;
 }
 
 
