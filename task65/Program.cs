@@ -13,21 +13,23 @@ int InsertDigit(string text) //Метод пользовательского в�
     return result;
 }
 
-void IntegerNumbers(int n, int m)
+
+void IntegerNumbers(int n, int m, int s)
 {
     if (n == m)
     {
         Console.Write($"{n} ");
         return;
     }
-    if (n > m)
-        IntegerNumbers(n - 1, m);
-    else
-        IntegerNumbers(n + 1, m);
+    IntegerNumbers(n + s, m, s);
+
     Console.Write($"{n} ");
 }
 
 int mUser = InsertDigit("Введите число N:");
 int nUser = InsertDigit("Введите число M:");
 
-IntegerNumbers(nUser, mUser);
+int sign=Math.Sign((mUser-nUser));
+Console.WriteLine($"sign = {sign}");
+
+IntegerNumbers(nUser, mUser, sign);
