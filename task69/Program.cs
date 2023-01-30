@@ -21,5 +21,6 @@ int PowerDigit(int n, int m)
 int nUser = InsertDigit("Введите число N:");
 int mPower = InsertDigit("Введите степень числа N:");
 
-int power = PowerDigit(nUser, mPower);
-Console.WriteLine(power);
+int power = PowerDigit(nUser, Math.Abs(mPower));
+string answer = mPower < 0 ? $"1/{power} =~ {Math.Round((double)1 / power, 4)}" : $"{power}";
+Console.WriteLine(answer);
