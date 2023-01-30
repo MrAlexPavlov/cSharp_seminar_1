@@ -47,8 +47,9 @@ int[,] CreatSpiralMatrix(int rowSize, int colSize)
             {
                 right = false;
                 down = true;
-                change = true;
+                //change = true;
                 r++;
+                continue;
             }
             else c++;
         }
@@ -62,8 +63,9 @@ int[,] CreatSpiralMatrix(int rowSize, int colSize)
             {
                 down = false;
                 left = true;
-                change = true;
+                //change = true;
                 c--;
+                continue;
             }
             else r++;
         }
@@ -77,8 +79,9 @@ int[,] CreatSpiralMatrix(int rowSize, int colSize)
             {
                 left = false;
                 up = true;
-                change = true;
+                //change = true;
                 r--;
+                continue;
             }
             else c--;
         }
@@ -92,8 +95,9 @@ int[,] CreatSpiralMatrix(int rowSize, int colSize)
             {
                 up = false;
                 right = true;
-                change = true;
+                //change = true;
                 c++;
+                continue;
             }
             else r--;
         }
