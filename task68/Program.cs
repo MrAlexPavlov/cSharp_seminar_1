@@ -12,15 +12,26 @@ int InsertNaturalDigit(string text) //Метод пользовательско�
     return result;
 }
 
-int AccermanMethod (int m, int n)
+int AccermanMethod1(int m, int n)
 {
-    if (m==0) return n+1;
-    else if (n==0) return AccermanMethod(m-1,1);
-    return AccermanMethod(m-1, AccermanMethod(m, n-1));
+    if (m == 0) return n + 1;
+    else if (n == 0) return AccermanMethod1(m - 1, 1);
+    return AccermanMethod1(m - 1, AccermanMethod1(m, n - 1));
+}
+
+int AccermanMethod2(int m, int n)
+{
+    while (m != 0)
+    {
+        if (n == 0) n = 1;
+        else n = AccermanMethod2(m, n - 1);
+        m = m - 1;
+    }
+    return n + 1;
 }
 
 int mUser = InsertNaturalDigit("Введите натуральное число m:");
 int nUser = InsertNaturalDigit("Введите натуральное число n:");
 
-int answer = AccermanMethod(mUser,nUser);
+int answer = AccermanMethod2(mUser, nUser);
 Console.WriteLine($"m = {mUser}, n = {nUser} -> A(m,n) = {answer}");
